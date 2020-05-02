@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,12 @@
 		7E8BB32B245DE2F8005A2777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E8BB329245DE2F8005A2777 /* Main.storyboard */; };
 		7E8BB32D245DE301005A2777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E8BB32C245DE301005A2777 /* Assets.xcassets */; };
 		7E8BB330245DE301005A2777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E8BB32E245DE301005A2777 /* LaunchScreen.storyboard */; };
+		7E8BB339245DEC28005A2777 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8BB338245DEC28005A2777 /* Alamofire */; };
+		7E8BB33B245DEC37005A2777 /* BackendCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8BB33A245DEC37005A2777 /* BackendCaller.swift */; };
+		7E8BB33E245DF60F005A2777 /* Anchorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8BB33D245DF60F005A2777 /* Anchorage */; };
+		7E8BB343245DF7AF005A2777 /* ShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8BB342245DF7AF005A2777 /* ShiftViewController.swift */; };
+		7E8BB347245DF87C005A2777 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8BB346245DF87C005A2777 /* JTAppleCalendar */; };
+		7E8BB349245DF963005A2777 /* SetupScreenAgeWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8BB348245DF963005A2777 /* SetupScreenAgeWeightViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,9 @@
 		7E8BB32C245DE301005A2777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E8BB32F245DE301005A2777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E8BB331245DE301005A2777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E8BB33A245DEC37005A2777 /* BackendCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendCaller.swift; sourceTree = "<group>"; };
+		7E8BB342245DF7AF005A2777 /* ShiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftViewController.swift; sourceTree = "<group>"; };
+		7E8BB348245DF963005A2777 /* SetupScreenAgeWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupScreenAgeWeightViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8BB339245DEC28005A2777 /* Alamofire in Frameworks */,
+				7E8BB347245DF87C005A2777 /* JTAppleCalendar in Frameworks */,
+				7E8BB33E245DF60F005A2777 /* Anchorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +68,34 @@
 		7E8BB322245DE2F8005A2777 /* SleepShield */ = {
 			isa = PBXGroup;
 			children = (
+				7E8BB34A245DF969005A2777 /* View */,
+				7E8BB341245DF799005A2777 /* ViewControllers */,
+				7E8BB33A245DEC37005A2777 /* BackendCaller.swift */,
 				7E8BB323245DE2F8005A2777 /* AppDelegate.swift */,
 				7E8BB325245DE2F8005A2777 /* SceneDelegate.swift */,
-				7E8BB327245DE2F8005A2777 /* ViewController.swift */,
 				7E8BB329245DE2F8005A2777 /* Main.storyboard */,
 				7E8BB32C245DE301005A2777 /* Assets.xcassets */,
 				7E8BB32E245DE301005A2777 /* LaunchScreen.storyboard */,
 				7E8BB331245DE301005A2777 /* Info.plist */,
 			);
 			path = SleepShield;
+			sourceTree = "<group>";
+		};
+		7E8BB341245DF799005A2777 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E8BB327245DE2F8005A2777 /* ViewController.swift */,
+				7E8BB342245DF7AF005A2777 /* ShiftViewController.swift */,
+				7E8BB348245DF963005A2777 /* SetupScreenAgeWeightViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7E8BB34A245DF969005A2777 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +114,11 @@
 			dependencies = (
 			);
 			name = SleepShield;
+			packageProductDependencies = (
+				7E8BB338245DEC28005A2777 /* Alamofire */,
+				7E8BB33D245DF60F005A2777 /* Anchorage */,
+				7E8BB346245DF87C005A2777 /* JTAppleCalendar */,
+			);
 			productName = SleepShield;
 			productReference = 7E8BB320245DE2F8005A2777 /* SleepShield.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +147,11 @@
 				Base,
 			);
 			mainGroup = 7E8BB317245DE2F8005A2777;
+			packageReferences = (
+				7E8BB337245DEC28005A2777 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7E8BB33C245DF60F005A2777 /* XCRemoteSwiftPackageReference "Anchorage" */,
+				7E8BB345245DF87C005A2777 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+			);
 			productRefGroup = 7E8BB321245DE2F8005A2777 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8BB328245DE2F8005A2777 /* ViewController.swift in Sources */,
+				7E8BB33B245DEC37005A2777 /* BackendCaller.swift in Sources */,
+				7E8BB349245DF963005A2777 /* SetupScreenAgeWeightViewController.swift in Sources */,
 				7E8BB324245DE2F8005A2777 /* AppDelegate.swift in Sources */,
 				7E8BB326245DE2F8005A2777 /* SceneDelegate.swift in Sources */,
+				7E8BB343245DF7AF005A2777 /* ShiftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +382,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7E8BB337245DEC28005A2777 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		7E8BB33C245DF60F005A2777 /* XCRemoteSwiftPackageReference "Anchorage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Rightpoint/Anchorage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.0;
+			};
+		};
+		7E8BB345245DF87C005A2777 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E8BB338245DEC28005A2777 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E8BB337245DEC28005A2777 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7E8BB33D245DF60F005A2777 /* Anchorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E8BB33C245DF60F005A2777 /* XCRemoteSwiftPackageReference "Anchorage" */;
+			productName = Anchorage;
+		};
+		7E8BB346245DF87C005A2777 /* JTAppleCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E8BB345245DF87C005A2777 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			productName = JTAppleCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E8BB318245DE2F8005A2777 /* Project object */;
 }

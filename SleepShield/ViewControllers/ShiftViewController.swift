@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShiftViewController.swift
 //  SleepShield
 //
 //  Created by Matthew Krager on 5/2/20.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ShiftViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
 }
-
