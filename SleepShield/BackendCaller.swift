@@ -14,6 +14,8 @@ class BackendCaller: NSObject {
     private override init() { }
     
     func callAlgorithm() {
-        
+        AF.request("https://us-central1-tohacks-2020-276017.cloudfunctions.net/algorithm").response { (response) in
+            print(response)
+        }
     }
 }

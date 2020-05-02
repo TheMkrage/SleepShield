@@ -12,6 +12,11 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ModernSans-Light.otf</string>
+		<string>proximanova-light.otf</string>
+	</array>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
