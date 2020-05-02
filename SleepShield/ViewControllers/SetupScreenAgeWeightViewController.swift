@@ -22,15 +22,23 @@ class SetupScreenAgeWeightViewController: UIViewController {
     
     lazy var ageWeightCard: UIView = {
         let v = UIView()
+        v.backgroundColor = UIColor.init(named: "light")
         v.addSubview(ageWeightInfoLabel)
         v.addSubview(ageWeightStack)
+        v.layer.cornerRadius = 10
+//        v.layer.masksToBounds = false
+//        v.layer.shadowColor = UIColor.black.cgColor
+//        v.layer.shadowPath = UIBezierPath(roundedRect: v.bounds, cornerRadius: v.layer.cornerRadius).cgPath
+//        v.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+//        v.layer.shadowOpacity = 0.5
+//        v.layer.shadowRadius = 1.0
         return v
     }()
     
     let ageWeightInfoLabel: Label = {
         let l = Label()
         l.text = "Please enter your age and weight"
-        l.font = l.font.withSize(24.0)
+        l.font = l.font.withSize(20.0)
         return l
     }()
     
@@ -41,7 +49,7 @@ class SetupScreenAgeWeightViewController: UIViewController {
     let ageLabel: Label = {
         let l = Label()
         l.text = "Age"
-        l.font = l.font.withSize(45.0)
+        l.font = l.font.withSize(35.0)
         return l
     }()
     let ageField: UITextField = {
@@ -50,6 +58,14 @@ class SetupScreenAgeWeightViewController: UIViewController {
         t.borderStyle = .none
         t.backgroundColor = .none
         t.textColor = .white
+        t.text = "22"
+        t.widthAnchor == 110
+        t.textAlignment = .center
+        
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: 56.0, width: 110, height: 1.0)
+        bottomLine.backgroundColor = UIColor.white.cgColor
+        t.layer.addSublayer(bottomLine)
         
         return t
     }()
@@ -61,22 +77,32 @@ class SetupScreenAgeWeightViewController: UIViewController {
     let weightLabel: Label = {
         let l = Label()
         l.text = "Weight"
-        l.font = l.font.withSize(45.0)
+        l.font = l.font.withSize(35.0)
+        
         return l
     }()
     let weightField: UITextField = {
         let t = UITextField()
+        t.textAlignment = .center
         t.font = UIFont(name: "proximanova-light", size: 55.0)
         t.borderStyle = .none
         t.backgroundColor = .none
         t.textColor = .white
+        t.widthAnchor == 110
+        t.text = "150"
+        
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: 56.0, width: 110, height: 1.0)
+        bottomLine.backgroundColor = UIColor.white.cgColor
+        t.layer.addSublayer(bottomLine)
         
         return t
     }()
     
     lazy var ageWeightStack: UIStackView = {
         let s = UIStackView(arrangedSubviews: [ageStack, weightStack])
-        
+        s.axis = .vertical
+        s.spacing = 20
         return s
     }()
     
@@ -85,41 +111,49 @@ class SetupScreenAgeWeightViewController: UIViewController {
     let caffeineMelatoninInfoLabel: Label = {
         let l = Label()
         l.text = "Do you use Caffeine or Melatonin?"
-        l.font = l.font.withSize(24.0)
+        l.font = l.font.withSize(20.0)
         return l
     }()
     
-    let caffeineStack: UIStackView = {
-        let image = UIImageView(image: .init(imageLiteralResourceName: "caffeine"))
+    let caffeineSwitcher: UISwitch = {
+        let s = UISwitch()
+        return s
+    }()
+    
+    lazy var caffeineStack: UIStackView = {
+        let image = UIImageView(image: UIImage.init(named: "caffeine"))
         image.widthAnchor == 90
         image.heightAnchor == 83
         
         let label = Label()
+        label.text = "Caffeine"
         label.font = label.font.withSize(30)
         
-        let switcher = UISwitch()
-        
-        
-        let l = UIStackView(arrangedSubviews: [image, label, switcher])
+        let l = UIStackView(arrangedSubviews: [image, label, caffeineSwitcher])
         l.axis = .vertical
+        l.alignment = .center
         l.spacing = 8.0
         
         return l
     }()
     
-    let melatoninStack: UIStackView = {
-        let image = UIImageView(image: .init(imageLiteralResourceName: "caffeine"))
+    let melatoninSwitcher: UISwitch = {
+        let s = UISwitch()
+        return s
+    }()
+    
+    lazy var melatoninStack: UIStackView = {
+        let image = UIImageView(image: UIImage.init(named: "melatonin"))
         image.widthAnchor == 90
         image.heightAnchor == 83
         
         let label = Label()
+        label.text = "Melatonin"
         label.font = label.font.withSize(30)
         
-        let switcher = UISwitch()
-        
-        
-        let l = UIStackView(arrangedSubviews: [image, label, switcher])
+        let l = UIStackView(arrangedSubviews: [image, label, melatoninSwitcher])
         l.axis = .vertical
+        l.alignment = .center
         l.spacing = 8.0
         
         return l
@@ -129,12 +163,15 @@ class SetupScreenAgeWeightViewController: UIViewController {
         let s = UIStackView(arrangedSubviews: [caffeineStack, melatoninStack])
         s.axis = .horizontal
         s.spacing = 25
+        s.distribution = .equalSpacing
         
         return s
     }()
     
     lazy var caffeineMelatoninCard: UIView = {
         let v = UIView()
+        v.backgroundColor = UIColor.init(named: "light")
+        v.layer.cornerRadius = 10
         v.addSubview(caffeineMelatoninInfoLabel)
         
         
@@ -142,7 +179,12 @@ class SetupScreenAgeWeightViewController: UIViewController {
         return v
     }()
     
-    let button = Button()
+    let button: Button = {
+        let b = Button()
+        b.setTitle("Next", for: .normal)
+        b.addTarget(self, action: #selector(didPressNext), for: .touchUpInside)
+        return b
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,8 +202,20 @@ class SetupScreenAgeWeightViewController: UIViewController {
         setupConstraints()
     }
     
+    @objc func didPressNext() {
+        let vc = SetupScreenSleepViewController()
+        vc.modalPresentationStyle = .fullScreen
+        let algorithmInput = AlgorithmInput()
+        algorithmInput.hasCaffeine = caffeineSwitcher.isOn
+        algorithmInput.hasMelatonin = melatoninSwitcher.isOn
+        algorithmInput.age = Int(ageField.text ?? "") ?? 25
+        algorithmInput.weight = Double(weightField.text ?? "") ?? 150
+        vc.algorithmInput = algorithmInput
+        show(vc, sender: self)
+    }
+    
     private func setupConstraints() {
-        titleLabel.topAnchor == view.safeAreaLayoutGuide.topAnchor + 50
+        titleLabel.topAnchor == view.safeAreaLayoutGuide.topAnchor + 25
         titleLabel.centerXAnchor == view.centerXAnchor
         
         
@@ -175,7 +229,7 @@ class SetupScreenAgeWeightViewController: UIViewController {
         ageWeightInfoLabel.trailingAnchor == ageWeightCard.trailingAnchor - 16
         ageWeightInfoLabel.topAnchor == ageWeightCard.topAnchor + 17
         
-        ageWeightStack.topAnchor == ageWeightInfoLabel.bottomAnchor + 13
+        ageWeightStack.topAnchor == ageWeightInfoLabel.bottomAnchor + 15
         ageWeightStack.leadingAnchor == ageWeightCard.leadingAnchor + 17
         ageWeightStack.trailingAnchor == ageWeightCard.trailingAnchor - 13
         ageWeightStack.bottomAnchor == ageWeightCard.bottomAnchor - 22
@@ -199,7 +253,7 @@ class SetupScreenAgeWeightViewController: UIViewController {
         
         //Button
         button.centerXAnchor == view.centerXAnchor
-        button.topAnchor == melatoninCaffeineStack.bottomAnchor + 30
+        button.topAnchor == caffeineMelatoninCard.bottomAnchor + 30
         button.heightAnchor == 60
         button.widthAnchor == 174
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class ShiftViewController: UIViewController {
 
+    var algorithmInput: AlgorithmInput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
