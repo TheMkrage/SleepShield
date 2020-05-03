@@ -54,6 +54,7 @@ class ShiftViewController: UIViewController {
         
         view.backgroundColor = UIColor.init(named: "dark")
         
+        table.isHidden = true
         table.backgroundColor = UIColor.init(named: "light")
         table.layer.cornerRadius = 10
         table.register(ShiftTableViewCell.self, forCellReuseIdentifier: "shift")
@@ -152,6 +153,7 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
 extension ShiftViewController: AddShiftViewControllerDelegate {
     func added(shift: Shift) {
         shifts.append(shift)
+        table.isHidden = false
         table.reloadData()
     }
 }

@@ -16,6 +16,8 @@
 		7E1DE280245E6408004338C7 /* AddShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE27F245E6408004338C7 /* AddShiftViewController.swift */; };
 		7E1DE282245E6422004338C7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE281245E6422004338C7 /* TextField.swift */; };
 		7E1DE284245E6C3F004338C7 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE283245E6C3F004338C7 /* ResultsViewController.swift */; };
+		7E1DE286245E794F004338C7 /* AlgorithmOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE285245E794F004338C7 /* AlgorithmOutput.swift */; };
+		7E1DE288245E7BD7004338C7 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE287245E7BD7004338C7 /* EventTableViewCell.swift */; };
 		7E4E15EC245E06BF006B88CC /* proximanova-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E15EB245E0684006B88CC /* proximanova-light.otf */; };
 		7E4E15EE245E0811006B88CC /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E15ED245E0811006B88CC /* Label.swift */; };
 		7E61D58E245E1C4D00561F97 /* SetupScreenSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */; };
@@ -46,6 +48,8 @@
 		7E1DE27F245E6408004338C7 /* AddShiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShiftViewController.swift; sourceTree = "<group>"; };
 		7E1DE281245E6422004338C7 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		7E1DE283245E6C3F004338C7 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		7E1DE285245E794F004338C7 /* AlgorithmOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmOutput.swift; sourceTree = "<group>"; };
+		7E1DE287245E7BD7004338C7 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		7E4E15EB245E0684006B88CC /* proximanova-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-light.otf"; sourceTree = "<group>"; };
 		7E4E15ED245E0811006B88CC /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupScreenSleepViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1DE278245E5CAA004338C7 /* ShiftTableViewCell.swift */,
+				7E1DE287245E7BD7004338C7 /* EventTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			children = (
 				7E61D591245E1CF300561F97 /* AlgorithmInput.swift */,
 				7E1DE27D245E6011004338C7 /* Shift.swift */,
+				7E1DE285245E794F004338C7 /* AlgorithmOutput.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				7E1DE280245E6408004338C7 /* AddShiftViewController.swift in Sources */,
 				7E1DE27E245E6011004338C7 /* Shift.swift in Sources */,
 				7E1DE272245E21D5004338C7 /* CoolSlider.swift in Sources */,
+				7E1DE286245E794F004338C7 /* AlgorithmOutput.swift in Sources */,
 				7E8BB33B245DEC37005A2777 /* BackendCaller.swift in Sources */,
 				7E8BB349245DF963005A2777 /* SetupScreenAgeWeightViewController.swift in Sources */,
 				7E61D592245E1CF300561F97 /* AlgorithmInput.swift in Sources */,
@@ -263,6 +270,7 @@
 				7E8BB326245DE2F8005A2777 /* SceneDelegate.swift in Sources */,
 				7E4E15EE245E0811006B88CC /* Label.swift in Sources */,
 				7E1DE282245E6422004338C7 /* TextField.swift in Sources */,
+				7E1DE288245E7BD7004338C7 /* EventTableViewCell.swift in Sources */,
 				7E8BB343245DF7AF005A2777 /* ShiftViewController.swift in Sources */,
 				7E61D58E245E1C4D00561F97 /* SetupScreenSleepViewController.swift in Sources */,
 			);
