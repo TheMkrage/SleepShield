@@ -71,6 +71,8 @@ class ResultsViewController: UIViewController {
     lazy var topStack: UIStackView = {
         let s = UIStackView(arrangedSubviews: [leftArrow, dayText, rightArrow])
         s.axis = .horizontal
+        s.distribution = .equalCentering
+        s.spacing = 1
         return s
     }()
     
@@ -142,6 +144,9 @@ class ResultsViewController: UIViewController {
 
 extension ResultsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if algorithmOutput?.days.count == 0 {
+            return 0
+        }
         return algorithmOutput?.days[dayIndex].events.count ?? 0
     }
     

@@ -20,8 +20,16 @@ class TextField: UITextField {
     }
     
     private func initialize() {
-        backgroundColor = UIColor.init(hexString: "C4C4C4")
+        backgroundColor = UIColor.init(hexString: "6a7a96")
         layer.cornerRadius = 2.0
         textColor = .white
+    }
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 0.0))
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+         return bounds.inset(by: UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 0.0))
     }
 }

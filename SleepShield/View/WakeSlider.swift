@@ -36,9 +36,9 @@ class WarmSlider: UISlider {
         let frame = CGRect.init(x:0, y:0, width: self.frame.size.width, height:5)
         tgl.frame = frame
         tgl.colors = [
-            UIColor.init(hexString: "81D4FA").cgColor,
+            UIColor.init(hexString: "F57F17").cgColor,
             UIColor.init(hexString: "FFF176").cgColor,
-            UIColor.init(hexString: "F57F17").cgColor
+            UIColor.init(hexString: "81D4FA").cgColor
         ]
         tgl.startPoint = CGPoint.init(x:0.0, y:0.5)
         tgl.endPoint = CGPoint.init(x:1.0, y:0.5)

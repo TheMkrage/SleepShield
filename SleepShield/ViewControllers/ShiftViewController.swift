@@ -97,19 +97,19 @@ class ShiftViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        titleLabel.topAnchor == view.safeAreaLayoutGuide.topAnchor + 25
+        titleLabel.topAnchor == view.safeAreaLayoutGuide.topAnchor + 20
         titleLabel.centerXAnchor == view.centerXAnchor
         
-        infoLabel.topAnchor == titleLabel.bottomAnchor + 4.0
+        infoLabel.topAnchor == titleLabel.bottomAnchor + 14.0
         infoLabel.leadingAnchor == view.leadingAnchor + 40
         infoLabel.trailingAnchor == view.trailingAnchor - 40
         
-        createShiftButton.topAnchor == infoLabel.bottomAnchor + 20
+        createShiftButton.topAnchor == infoLabel.bottomAnchor + 28
         createShiftButton.centerXAnchor == view.centerXAnchor
         createShiftButton.heightAnchor == 60
         createShiftButton.widthAnchor == 260
         
-        table.topAnchor == createShiftButton.bottomAnchor + 20
+        table.topAnchor == createShiftButton.bottomAnchor + 29
         table.leadingAnchor == view.leadingAnchor + 20
         table.trailingAnchor == view.trailingAnchor - 20
         

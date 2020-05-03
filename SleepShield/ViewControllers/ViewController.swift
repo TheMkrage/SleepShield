@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     let titleLabel: UILabel = {
         let l = UILabel()
         l.font = UIFont(name: "ModernSansLight", size: 85.0)
-        l.text = "Phase"
+        l.text = "phase"
         l.textColor = .white
         l.textAlignment = .center
         return l

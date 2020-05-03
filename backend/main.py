@@ -53,6 +53,8 @@ def get_days(last_wake_time, shift_start_day, shift_start_time):
         caffeine_event['name'] = "Get Caffeine"
         events.append(caffeine_event)
 
+        last_sleep_time = last_wake_time - datetime.timedelta(hours=7)
+        
         melatonin_time = last_sleep_time - datetime.timedelta(hours=1)
         melatonin_event = {}
         melatonin_event['iconName'] = 'melatonin'
@@ -64,7 +66,7 @@ def get_days(last_wake_time, shift_start_day, shift_start_time):
         else:
             events.append(melatonin_event)
 
-        last_sleep_time = last_wake_time - datetime.timedelta(hours=7)
+
         sleep_event = {}
         sleep_event['iconName'] = 'sleep'
         sleep_event['timeText'] = time_to_string(last_sleep_time)

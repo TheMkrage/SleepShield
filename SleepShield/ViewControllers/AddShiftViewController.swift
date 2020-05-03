@@ -154,7 +154,9 @@ class AddShiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.init(named: "dark")
+        //view.backgroundColor = UIColor.init(named: "light")
+        view.layer.cornerRadius = 11.0
+        //view
         
         view.addSubview(titleLabel)
         
@@ -173,6 +175,23 @@ class AddShiftViewController: UIViewController {
         setupConstraints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setGradientBackground(colorTop: UIColor.init(hexString: "072863"), colorBottom: UIColor.init(hexString: "284679"))
+    }
+    
+    func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
+        gradientLayer.cornerRadius = 10
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.8, y: 0.8)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = view.bounds
+
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     private func setupConstraints() {
         titleLabel.topAnchor == view.safeAreaLayoutGuide.topAnchor + 25
         titleLabel.centerXAnchor == view.centerXAnchor
@@ -186,7 +205,7 @@ class AddShiftViewController: UIViewController {
         startTimeField.heightAnchor == 38
         
         
-        endTimeLabel.topAnchor == startTimeField.bottomAnchor + 5
+        endTimeLabel.topAnchor == startTimeField.bottomAnchor + 7
         endTimeLabel.leadingAnchor == startTimeLabel.leadingAnchor
         
         endTimeField.topAnchor == endTimeLabel.bottomAnchor
@@ -204,7 +223,7 @@ class AddShiftViewController: UIViewController {
         startDateField.heightAnchor == 38
         
         
-        endDateLabel.topAnchor == startDateField.bottomAnchor + 5
+        endDateLabel.topAnchor == startDateField.bottomAnchor + 7
         endDateLabel.leadingAnchor == startTimeLabel.leadingAnchor
         
         endDateField.topAnchor == endDateLabel.bottomAnchor
@@ -215,5 +234,7 @@ class AddShiftViewController: UIViewController {
         
         button.bottomAnchor == view.bottomAnchor - 15
         button.centerXAnchor == view.centerXAnchor
+        button.widthAnchor == 250
+        button.heightAnchor == 64
     }
 }

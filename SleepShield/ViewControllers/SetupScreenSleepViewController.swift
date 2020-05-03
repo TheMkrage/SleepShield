@@ -16,7 +16,7 @@ class SetupScreenSleepViewController: UIViewController {
     let titleLabel: Label = {
       let l = Label()
       l.font = UIFont(name: "ModernSansLight", size: 85.0)
-      l.text = "Phase"
+      l.text = "phase"
       l.textColor = .white
       l.textAlignment = .center
       return l
@@ -24,6 +24,8 @@ class SetupScreenSleepViewController: UIViewController {
     
     var infoText: Label = {
         let l = Label()
+        l.font = l.font.withSize(24.0)
+        l.textAlignment = .center
         l.text = "Put in the time you woke up and slept last night"
         return l
     }()
@@ -55,6 +57,13 @@ class SetupScreenSleepViewController: UIViewController {
     
     lazy var wakeCard: CardView = {
         let c = CardView()
+        
+        let q = UIImageView(image: UIImage.init(named: "question"))
+       q.widthAnchor == 15
+       q.heightAnchor == 15
+       c.addSubview(q)
+       q.topAnchor == c.topAnchor + 10
+       q.trailingAnchor == c.trailingAnchor - 10
         c.addSubview(titleWakeStack)
         c.addSubview(wakeTimeLabel)
         c.addSubview(wakeSlider)
@@ -91,6 +100,12 @@ class SetupScreenSleepViewController: UIViewController {
     
     lazy var sleepCard: CardView = {
         let c = CardView()
+        let q = UIImageView(image: UIImage.init(named: "question"))
+        q.widthAnchor == 15
+        q.heightAnchor == 15
+        c.addSubview(q)
+        q.topAnchor == c.topAnchor + 10
+        q.trailingAnchor == c.trailingAnchor - 10
         c.addSubview(titleSleepStack)
         c.addSubview(sleepTimeLabel)
         c.addSubview(sleepSlider)
@@ -109,6 +124,7 @@ class SetupScreenSleepViewController: UIViewController {
         view.backgroundColor = UIColor.init(named: "dark")
         
         view.addSubview(titleLabel)
+        view.addSubview(infoText)
         view.addSubview(wakeCard)
         view.addSubview(sleepCard)
         
@@ -204,7 +220,12 @@ class SetupScreenSleepViewController: UIViewController {
         titleLabel.topAnchor == view.safeAreaLayoutGuide.topAnchor + 25
         titleLabel.centerXAnchor == view.centerXAnchor
         
-        wakeCard.topAnchor == titleLabel.bottomAnchor + 25
+        infoText.topAnchor == titleLabel.bottomAnchor + 15
+        infoText.centerXAnchor == view.centerXAnchor
+        infoText.leadingAnchor == view.leadingAnchor + 20
+        infoText.trailingAnchor == view.trailingAnchor - 20
+        
+        wakeCard.topAnchor == infoText.bottomAnchor + 45
         wakeCard.leadingAnchor == view.leadingAnchor + 20
         wakeCard.trailingAnchor == view.trailingAnchor - 20
         
@@ -218,7 +239,7 @@ class SetupScreenSleepViewController: UIViewController {
         wakeSlider.topAnchor == wakeTimeLabel.bottomAnchor + 10
         wakeSlider.leadingAnchor == wakeCard.leadingAnchor + 25
         wakeSlider.trailingAnchor == wakeCard.trailingAnchor - 25
-        wakeSlider.bottomAnchor == wakeCard.bottomAnchor - 15
+        wakeSlider.bottomAnchor == wakeCard.bottomAnchor - 25
         
         // Sleep Card
         sleepCard.topAnchor == wakeCard.bottomAnchor + 25

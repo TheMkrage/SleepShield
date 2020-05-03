@@ -14,24 +14,24 @@ class SetupScreenAgeWeightViewController: UIViewController {
     let titleLabel: Label = {
            let l = Label()
            l.font = UIFont(name: "ModernSansLight", size: 85.0)
-           l.text = "Phase"
+           l.text = "phase"
            l.textColor = .white
            l.textAlignment = .center
            return l
        }()
     
-    lazy var ageWeightCard: UIView = {
-        let v = UIView()
-        v.backgroundColor = UIColor.init(named: "light")
+    lazy var ageWeightCard: CardView = {
+        let v = CardView()
+        
+        let q = UIImageView(image: UIImage.init(named: "question"))
+        q.widthAnchor == 15
+        q.heightAnchor == 15
+        
+        v.addSubview(q)
+        q.topAnchor == v.topAnchor + 10
+        q.trailingAnchor == v.trailingAnchor - 10
         v.addSubview(ageWeightInfoLabel)
         v.addSubview(ageWeightStack)
-        v.layer.cornerRadius = 10
-//        v.layer.masksToBounds = false
-//        v.layer.shadowColor = UIColor.black.cgColor
-//        v.layer.shadowPath = UIBezierPath(roundedRect: v.bounds, cornerRadius: v.layer.cornerRadius).cgPath
-//        v.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-//        v.layer.shadowOpacity = 0.5
-//        v.layer.shadowRadius = 1.0
         return v
     }()
     
@@ -168,13 +168,18 @@ class SetupScreenAgeWeightViewController: UIViewController {
         return s
     }()
     
-    lazy var caffeineMelatoninCard: UIView = {
-        let v = UIView()
-        v.backgroundColor = UIColor.init(named: "light")
+    lazy var caffeineMelatoninCard: CardView = {
+        let v = CardView()
+        
         v.layer.cornerRadius = 10
+        
+        let q = UIImageView(image: UIImage.init(named: "question"))
+        q.widthAnchor == 15
+        q.heightAnchor == 15
+        v.addSubview(q)
+        q.topAnchor == v.topAnchor + 10
+        q.trailingAnchor == v.trailingAnchor - 10
         v.addSubview(caffeineMelatoninInfoLabel)
-        
-        
         v.addSubview(melatoninCaffeineStack)
         return v
     }()
@@ -226,7 +231,7 @@ class SetupScreenAgeWeightViewController: UIViewController {
         ageWeightCard.trailingAnchor == view.trailingAnchor - 20
         
         ageWeightInfoLabel.leadingAnchor == ageWeightCard.leadingAnchor + 17
-        ageWeightInfoLabel.trailingAnchor == ageWeightCard.trailingAnchor - 16
+        ageWeightInfoLabel.trailingAnchor == ageWeightCard.trailingAnchor - 36
         ageWeightInfoLabel.topAnchor == ageWeightCard.topAnchor + 17
         
         ageWeightStack.topAnchor == ageWeightInfoLabel.bottomAnchor + 15
@@ -242,7 +247,7 @@ class SetupScreenAgeWeightViewController: UIViewController {
         caffeineMelatoninCard.trailingAnchor == view.trailingAnchor - 20
         
         caffeineMelatoninInfoLabel.leadingAnchor == caffeineMelatoninCard.leadingAnchor + 17
-        caffeineMelatoninInfoLabel.trailingAnchor == caffeineMelatoninCard.trailingAnchor - 16
+        caffeineMelatoninInfoLabel.trailingAnchor == caffeineMelatoninCard.trailingAnchor - 36
         caffeineMelatoninInfoLabel.topAnchor == caffeineMelatoninCard.topAnchor + 17
         
         melatoninCaffeineStack.topAnchor == caffeineMelatoninInfoLabel.bottomAnchor + 22
