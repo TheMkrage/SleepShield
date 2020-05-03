@@ -15,9 +15,15 @@ class ResultsViewController: UIViewController {
     var algorithmOutput: AlgorithmOutput? = AlgorithmOutput(days: [
         Day(day: "5/2", events: [
             Event(iconName: "caffeine", timeText: "8:00 AM", name: "Drink Coffee", dosageText: "15mg"),
-            Event(iconName: "melatonin", timeText: "8:00 AM", name: "Drink Coffee", dosageText: "15mg"),
-            Event(iconName: "sleep", timeText: "8:00 AM - 9:00 PM", name: "Drink Coffee", dosageText: "15mg"),
-            Event(iconName: "caffeine", timeText: "8:00 AM", name: "Drink Coffee", dosageText: "15mg")
+            Event(iconName: "melatonin", timeText: "8:00 AM", name: "Take Melatonin", dosageText: "16900mg"),
+            Event(iconName: "sleep", timeText: "8:00 AM - 9:00 PM", name: "Sleep", dosageText: "15mg"),
+            Event(iconName: "caffeine", timeText: "8:10 AM", name: "Take Caffeine", dosageText: "15mg")
+            ]),
+        Day(day: "5/3", events: [
+            Event(iconName: "caffeine", timeText: "8:00 AM", name: "Drink Cofdasffee", dosageText: "15mg"),
+            Event(iconName: "melatonin", timeText: "8:00 AM", name: "Take Melatonin", dosageText: "16900mg"),
+            Event(iconName: "sleep", timeText: "8:00 AM - 9:00 PM", name: "Sleep", dosageText: "15mg"),
+            Event(iconName: "caffeine", timeText: "8:10 AM", name: "Take Caffeine", dosageText: "15mg")
             ])
         ])
     var dayIndex = 0
@@ -43,18 +49,22 @@ class ResultsViewController: UIViewController {
     let leftArrow: UIButton = {
         let b = UIButton()
         b.setImage(UIImage.init(named: "left"), for: .normal)
+        b.addTarget(self, action: #selector(leftPressed), for: .touchUpInside)
         return b
     }()
     
     let dayText: UILabel = {
         let l = Label()
         l.font = l.font.withSize(27.0)
+        l.text = "Today"
+        l.textAlignment = .center
         return l
     }()
     
     let rightArrow: UIButton = {
         let b = UIButton()
         b.setImage(UIImage.init(named: "right"), for: .normal)
+        b.addTarget(self, action: #selector(rightPressed), for: .touchUpInside)
         return b
     }()
     
@@ -66,6 +76,24 @@ class ResultsViewController: UIViewController {
     
     // Table
     let table = UITableView()
+    
+    @objc func leftPressed() {
+        if dayIndex == 0 {
+            return
+        }
+        dayIndex -= 1
+        table.reloadData()
+        dayText.text = algorithmOutput?.days[dayIndex].day
+    }
+    
+    @objc func rightPressed() {
+        if dayIndex + 1 == algorithmOutput?.days.count ?? 1 {
+            return
+        }
+        dayIndex += 1
+        table.reloadData()
+        dayText.text = algorithmOutput?.days[dayIndex].day
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
