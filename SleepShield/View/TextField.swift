@@ -22,5 +22,6 @@ class TextField: UITextField {
     private func initialize() {
         backgroundColor = UIColor.init(hexString: "C4C4C4")
         layer.cornerRadius = 2.0
+        textColor = .white
     }
 }

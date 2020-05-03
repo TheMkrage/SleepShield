@@ -67,12 +67,15 @@ class ShiftViewController: UIViewController {
     @objc private func addShift() {
         let vc = AddShiftViewController()
         vc.delegate = self
+        table.backgroundColor = .clear
         
         var attributes = EKAttributes()
         let widthConstraint = EKAttributes.PositionConstraints.Edge.ratio(value: 0.9)
-        let heightConstraint = EKAttributes.PositionConstraints.Edge.ratio(value: 0.7)
+        let heightConstraint = EKAttributes.PositionConstraints.Edge.ratio(value: 0.65)
         attributes.positionConstraints.size = .init(width: widthConstraint, height: heightConstraint)
         attributes.displayDuration = .infinity
+        attributes.position = .center
+        attributes.entryInteraction = .forward
         SwiftEntryKit.display(entry: vc, using: attributes)
     }
     

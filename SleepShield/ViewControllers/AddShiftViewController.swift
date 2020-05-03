@@ -104,17 +104,21 @@ class AddShiftViewController: UIViewController {
         return s
     }()
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @objc func startTimeSet() {
         startTimeField.text = getTime(date: startTimePicker.date)
     }
     @objc func endTimeSet() {
-        startTimeField.text = getTime(date: endTimePicker.date)
+        endTimeField.text = getTime(date: endTimePicker.date)
     }
     @objc func startDateSet() {
-        startTimeField.text = getTime(date: startDatePicker.date)
+        startDateField.text = getMonthDay(date: startDatePicker.date)
     }
     @objc func endDateSet() {
-        startTimeField.text = getTime(date: endDatePicker.date)
+        endDateField.text = getMonthDay(date: endDatePicker.date)
     }
     
     let button: Button = {
@@ -173,6 +177,7 @@ class AddShiftViewController: UIViewController {
         startTimeField.topAnchor == startTimeLabel.bottomAnchor
         startTimeField.leadingAnchor == startTimeLabel.leadingAnchor
         startTimeField.trailingAnchor == view.trailingAnchor - 15
+        startTimeField.heightAnchor == 38
         
         
         endTimeLabel.topAnchor == startTimeField.bottomAnchor + 5
@@ -181,14 +186,16 @@ class AddShiftViewController: UIViewController {
         endTimeField.topAnchor == endTimeLabel.bottomAnchor
         endTimeField.leadingAnchor == startTimeLabel.leadingAnchor
         endTimeField.trailingAnchor == view.trailingAnchor - 15
+        endTimeField.heightAnchor == 38
         
         
-        startDateLabel.topAnchor == endTimeField.bottomAnchor + 5
+        startDateLabel.topAnchor == endTimeField.bottomAnchor + 15
         startDateLabel.leadingAnchor == startTimeLabel.leadingAnchor
         
         startDateField.topAnchor == startDateLabel.bottomAnchor
         startDateField.leadingAnchor == startTimeLabel.leadingAnchor
         startDateField.trailingAnchor == view.trailingAnchor - 15
+        startDateField.heightAnchor == 38
         
         
         endDateLabel.topAnchor == startDateField.bottomAnchor + 5
@@ -197,6 +204,7 @@ class AddShiftViewController: UIViewController {
         endDateField.topAnchor == endDateLabel.bottomAnchor
         endDateField.leadingAnchor == startTimeLabel.leadingAnchor
         endDateField.trailingAnchor == view.trailingAnchor - 15
+        endDateField.heightAnchor == 38
         
         
         button.bottomAnchor == view.bottomAnchor - 15
