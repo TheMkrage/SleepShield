@@ -7,25 +7,27 @@
 //
 
 import UIKit
+import Anchorage
 
 class ShiftTableViewCell: UITableViewCell {
     
     var didSetConstraints = false
     
-    let titleLabel: Label = {
+    let shiftLabel: Label = {
         let l = Label()
-        l.font = UIFont(name: "ModernSansLight", size: 85.0)
-        l.text = "phase"
-        l.textColor = .white
-        l.textAlignment = .center
+        l.font = l.font.withSize(30.0)
         return l
     }()
     
-    let infoLabel: Label = {
+    let timesLabel: Label = {
         let l = Label()
-        l.text = "Please enter your scheduled shifts"
         l.font = l.font.withSize(24.0)
-        l.textAlignment = .center
+        return l
+    }()
+    
+    let datesLabel: Label = {
+        let l = Label()
+        l.font = l.font.withSize(24.0)
         return l
     }()
     
@@ -45,6 +47,10 @@ class ShiftTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
+        addSubview(shiftLabel)
+        addSubview(timesLabel)
+        addSubview(datesLabel)
+        
         setNeedsUpdateConstraints()
         updateConstraintsIfNeeded()
     }
@@ -58,6 +64,13 @@ class ShiftTableViewCell: UITableViewCell {
         }
         didSetConstraints = true
         
+        shiftLabel.leadingAnchor == leadingAnchor + 10
+        shiftLabel.centerYAnchor == centerYAnchor
         
+        timesLabel.leadingAnchor == shiftLabel.trailingAnchor + 10
+        timesLabel.centerYAnchor == centerYAnchor
+        
+        datesLabel.leadingAnchor == timesLabel.trailingAnchor + 20
+        datesLabel.centerYAnchor == centerYAnchor
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Anchorage
+import SwiftEntryKit
 
 class ShiftViewController: UIViewController {
 
@@ -33,6 +34,7 @@ class ShiftViewController: UIViewController {
     let createShiftButton: Button = {
         let b = Button()
         b.setTitle("Create Shift", for: .normal)
+        b.addTarget(self, action: #selector(addShift), for: .touchUpInside)
         return b
     }()
     
@@ -44,8 +46,14 @@ class ShiftViewController: UIViewController {
         return b
     }()
     
+    var shifts = [Shift]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        table.register(ShiftTableViewCell.self, forCellReuseIdentifier: "shift")
+        table.delegate = self
+        table.dataSource = self
         
         view.addSubview(titleLabel)
         view.addSubview(infoLabel)
@@ -54,6 +62,18 @@ class ShiftViewController: UIViewController {
         view.addSubview(button)
         
         setupConstraints()
+    }
+    
+    @objc private func addShift() {
+        let vc = AddShiftViewController()
+        vc.delegate = self
+        
+        var attributes = EKAttributes()
+        let widthConstraint = EKAttributes.PositionConstraints.Edge.ratio(value: 0.9)
+        let heightConstraint = EKAttributes.PositionConstraints.Edge.ratio(value: 0.7)
+        attributes.positionConstraints.size = .init(width: widthConstraint, height: heightConstraint)
+        attributes.displayDuration = .infinity
+        SwiftEntryKit.display(entry: vc, using: attributes)
     }
     
     private func setupConstraints() {
@@ -79,5 +99,40 @@ class ShiftViewController: UIViewController {
         button.bottomAnchor == view.safeAreaLayoutGuide.bottomAnchor - 20
         button.heightAnchor == 60
         button.widthAnchor == 174
+    }
+}
+
+extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shifts.count
+    }
+    
+    private func getMonthDay(date: Date) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "MM/dd"
+        return format.string(from: date)
+    }
+    private func getTime(date: Date) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "hh:mm a"
+        return format.string(from: date)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shift") as! ShiftTableViewCell
+        let shift = shifts[indexPath.row]
+        
+        cell.datesLabel.text = getMonthDay(date: shift.startDay) + " - " + getMonthDay(date: shift.endDay)
+        cell.timesLabel.text = getMonthDay(date: shift.startTime) + " - " + getMonthDay(date: shift.endTime)
+        cell.shiftLabel.text = "Shift \(indexPath.row + 1)"
+        
+        return cell
+    }
+}
+
+extension ShiftViewController: AddShiftViewControllerDelegate {
+    func added(shift: Shift) {
+        shifts.append(shift)
+        table.reloadData()
     }
 }

@@ -12,6 +12,10 @@
 		7E1DE276245E43FF004338C7 /* WakeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE275245E43FF004338C7 /* WakeSlider.swift */; };
 		7E1DE279245E5CAA004338C7 /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE278245E5CAA004338C7 /* ShiftTableViewCell.swift */; };
 		7E1DE27C245E5E97004338C7 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E1DE27B245E5E97004338C7 /* SwiftEntryKit */; };
+		7E1DE27E245E6011004338C7 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE27D245E6011004338C7 /* Shift.swift */; };
+		7E1DE280245E6408004338C7 /* AddShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE27F245E6408004338C7 /* AddShiftViewController.swift */; };
+		7E1DE282245E6422004338C7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE281245E6422004338C7 /* TextField.swift */; };
+		7E1DE284245E6C3F004338C7 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE283245E6C3F004338C7 /* ResultsViewController.swift */; };
 		7E4E15EC245E06BF006B88CC /* proximanova-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E15EB245E0684006B88CC /* proximanova-light.otf */; };
 		7E4E15EE245E0811006B88CC /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E15ED245E0811006B88CC /* Label.swift */; };
 		7E61D58E245E1C4D00561F97 /* SetupScreenSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */; };
@@ -38,6 +42,10 @@
 		7E1DE273245E4141004338C7 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		7E1DE275245E43FF004338C7 /* WakeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeSlider.swift; sourceTree = "<group>"; };
 		7E1DE278245E5CAA004338C7 /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
+		7E1DE27D245E6011004338C7 /* Shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
+		7E1DE27F245E6408004338C7 /* AddShiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShiftViewController.swift; sourceTree = "<group>"; };
+		7E1DE281245E6422004338C7 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		7E1DE283245E6C3F004338C7 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		7E4E15EB245E0684006B88CC /* proximanova-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-light.otf"; sourceTree = "<group>"; };
 		7E4E15ED245E0811006B88CC /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupScreenSleepViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				7E61D591245E1CF300561F97 /* AlgorithmInput.swift */,
+				7E1DE27D245E6011004338C7 /* Shift.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +142,8 @@
 				7E8BB342245DF7AF005A2777 /* ShiftViewController.swift */,
 				7E8BB348245DF963005A2777 /* SetupScreenAgeWeightViewController.swift */,
 				7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */,
+				7E1DE27F245E6408004338C7 /* AddShiftViewController.swift */,
+				7E1DE283245E6C3F004338C7 /* ResultsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -145,6 +156,7 @@
 				7E4E15ED245E0811006B88CC /* Label.swift */,
 				7E1DE271245E21D5004338C7 /* CoolSlider.swift */,
 				7E1DE275245E43FF004338C7 /* WakeSlider.swift */,
+				7E1DE281245E6422004338C7 /* TextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,8 +248,11 @@
 			files = (
 				7E8BB34C245DF9AB005A2777 /* Button.swift in Sources */,
 				7E61D594245E1E7A00561F97 /* CardView.swift in Sources */,
+				7E1DE284245E6C3F004338C7 /* ResultsViewController.swift in Sources */,
 				7E8BB328245DE2F8005A2777 /* ViewController.swift in Sources */,
 				7E1DE274245E4141004338C7 /* UIColor+extension.swift in Sources */,
+				7E1DE280245E6408004338C7 /* AddShiftViewController.swift in Sources */,
+				7E1DE27E245E6011004338C7 /* Shift.swift in Sources */,
 				7E1DE272245E21D5004338C7 /* CoolSlider.swift in Sources */,
 				7E8BB33B245DEC37005A2777 /* BackendCaller.swift in Sources */,
 				7E8BB349245DF963005A2777 /* SetupScreenAgeWeightViewController.swift in Sources */,
@@ -247,6 +262,7 @@
 				7E1DE279245E5CAA004338C7 /* ShiftTableViewCell.swift in Sources */,
 				7E8BB326245DE2F8005A2777 /* SceneDelegate.swift in Sources */,
 				7E4E15EE245E0811006B88CC /* Label.swift in Sources */,
+				7E1DE282245E6422004338C7 /* TextField.swift in Sources */,
 				7E8BB343245DF7AF005A2777 /* ShiftViewController.swift in Sources */,
 				7E61D58E245E1C4D00561F97 /* SetupScreenSleepViewController.swift in Sources */,
 			);
