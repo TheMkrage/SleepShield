@@ -8,15 +8,15 @@
 
 import UIKit
 
-class AlgorithmInput: NSObject {
+class AlgorithmInput: Encodable {
 
     var hasCaffeine = false
     var hasMelatonin = false
     var age = 25
     var weight = 150.0
     
-    var lastSleep: Date!
-    var lastWake: Date!
+    var lastSleep = Date()
+    var lastWake = Date()
     
     var shifts: [Shift] = []
 }

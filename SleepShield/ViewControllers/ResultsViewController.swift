@@ -98,6 +98,13 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        BackendCaller.shared.callAlgorithm(algorithmInput: algorithmInput) { (output) in
+            self.algorithmOutput = output
+            DispatchQueue.main.async {
+                self.table.reloadData()
+            }
+        }
+        
         view.backgroundColor = UIColor.init(named: "dark")
 
         view.addSubview(titleLabel)
