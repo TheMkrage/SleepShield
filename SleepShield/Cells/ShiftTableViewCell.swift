@@ -47,9 +47,9 @@ class ShiftTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        addSubview(shiftLabel)
-        addSubview(timesLabel)
-        addSubview(datesLabel)
+        contentView.addSubview(shiftLabel)
+        contentView.addSubview(timesLabel)
+        contentView.addSubview(datesLabel)
         
         setNeedsUpdateConstraints()
         updateConstraintsIfNeeded()
@@ -64,13 +64,16 @@ class ShiftTableViewCell: UITableViewCell {
         }
         didSetConstraints = true
         
-        shiftLabel.leadingAnchor == leadingAnchor + 10
-        shiftLabel.centerYAnchor == centerYAnchor
+        shiftLabel.leadingAnchor == contentView.leadingAnchor + 10
+        shiftLabel.centerYAnchor == contentView.centerYAnchor
         
         timesLabel.leadingAnchor == shiftLabel.trailingAnchor + 10
-        timesLabel.centerYAnchor == centerYAnchor
+        timesLabel.centerYAnchor == contentView.centerYAnchor
         
         datesLabel.leadingAnchor == timesLabel.trailingAnchor + 20
-        datesLabel.centerYAnchor == centerYAnchor
+        datesLabel.centerYAnchor == contentView.centerYAnchor
+        
+        timesLabel.widthAnchor == 120
+        timesLabel.widthAnchor == datesLabel.widthAnchor
     }
 }

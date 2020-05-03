@@ -43,6 +43,7 @@ class ShiftViewController: UIViewController {
     let button: Button = {
         let b = Button()
         b.setTitle("Next", for: .normal)
+        b.addTarget(self, action: #selector(didPressNext), for: .touchUpInside)
         return b
     }()
     
@@ -51,9 +52,16 @@ class ShiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.init(named: "dark")
+        
+        table.backgroundColor = UIColor.init(named: "light")
+        table.layer.cornerRadius = 10
         table.register(ShiftTableViewCell.self, forCellReuseIdentifier: "shift")
+        table.rowHeight = 70
+        table.estimatedRowHeight = 70
         table.delegate = self
         table.dataSource = self
+        
         
         view.addSubview(titleLabel)
         view.addSubview(infoLabel)
@@ -67,7 +75,6 @@ class ShiftViewController: UIViewController {
     @objc private func addShift() {
         let vc = AddShiftViewController()
         vc.delegate = self
-        table.backgroundColor = .clear
         
         var attributes = EKAttributes()
         let widthConstraint = EKAttributes.PositionConstraints.Edge.ratio(value: 0.9)
@@ -76,7 +83,16 @@ class ShiftViewController: UIViewController {
         attributes.displayDuration = .infinity
         attributes.position = .center
         attributes.entryInteraction = .forward
+        attributes.entryBackground = .visualEffect(style: .dark)
         SwiftEntryKit.display(entry: vc, using: attributes)
+    }
+    
+    @objc func didPressNext() {
+        let vc = ResultsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        algorithmInput.shifts = shifts
+        vc.algorithmInput = algorithmInput
+        show(vc, sender: self)
     }
     
     private func setupConstraints() {
@@ -126,7 +142,7 @@ extension ShiftViewController: UITableViewDelegate, UITableViewDataSource {
         let shift = shifts[indexPath.row]
         
         cell.datesLabel.text = getMonthDay(date: shift.startDay) + " - " + getMonthDay(date: shift.endDay)
-        cell.timesLabel.text = getMonthDay(date: shift.startTime) + " - " + getMonthDay(date: shift.endTime)
+        cell.timesLabel.text = getTime(date: shift.startTime) + " - " + getTime(date: shift.endTime)
         cell.shiftLabel.text = "Shift \(indexPath.row + 1)"
         
         return cell

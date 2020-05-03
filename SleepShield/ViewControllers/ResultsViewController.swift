@@ -9,6 +9,8 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+    
+    var algorithmInput: AlgorithmInput!
 
     override func viewDidLoad() {
         super.viewDidLoad()

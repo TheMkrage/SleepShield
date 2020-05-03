@@ -17,4 +17,6 @@ class AlgorithmInput: NSObject {
     
     var lastSleep: Date!
     var lastWake: Date!
+    
+    var shifts: [Shift] = []
 }

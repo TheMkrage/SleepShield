@@ -8,6 +8,7 @@
 
 import UIKit
 import Anchorage
+import SwiftEntryKit
 
 protocol AddShiftViewControllerDelegate {
     func added(shift: Shift)
@@ -82,24 +83,28 @@ class AddShiftViewController: UIViewController {
     lazy var startTimeField: TextField = {
         let s = TextField()
         s.inputView = startTimePicker
+        s.text = getTime(date: startTimePicker.date)
         s.font = s.font?.withSize(20.0)
         return s
     }()
     lazy var endTimeField: TextField = {
         let s = TextField()
         s.inputView = endTimePicker
+        s.text = getTime(date: endTimePicker.date)
         s.font = s.font?.withSize(20.0)
         return s
     }()
     lazy var startDateField: TextField = {
         let s = TextField()
         s.inputView = startDatePicker
+        s.text = getMonthDay(date: startDatePicker.date)
         s.font = s.font?.withSize(20.0)
         return s
     }()
     lazy var endDateField: TextField = {
         let s = TextField()
         s.inputView = endDatePicker
+        s.text = getMonthDay(date: endDatePicker.date)
         s.font = s.font?.withSize(20.0)
         return s
     }()
@@ -143,6 +148,7 @@ class AddShiftViewController: UIViewController {
     @objc func didPressNext() {
         let shift = Shift(startTime: startTimePicker.date, endTime: endTimePicker.date, startDay: startDatePicker.date, endDay: endDatePicker.date)
         delegate?.added(shift: shift)
+        SwiftEntryKit.dismiss()
     }
 
     override func viewDidLoad() {
