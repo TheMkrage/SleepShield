@@ -1,4 +1,12 @@
 //
+//  WakeSlider.swift
+//  SleepShield
+//
+//  Created by Matthew Krager on 5/2/20.
+//  Copyright © 2020 Matthew Krager. All rights reserved.
+//
+
+//
 //  CoolSlider.swift
 //  SleepShield
 //
@@ -8,7 +16,7 @@
 
 import UIKit
 
-class CoolSlider: UISlider {
+class WarmSlider: UISlider {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,9 +36,10 @@ class CoolSlider: UISlider {
         let frame = CGRect.init(x:0, y:0, width: self.frame.size.width, height:5)
         tgl.frame = frame
         tgl.colors = [
-        UIColor.init(hexString: "0E1449").cgColor,
-        UIColor.init(hexString: "0D47A1").cgColor,
-        UIColor.init(hexString: "2196F3").cgColor]
+            UIColor.init(hexString: "81D4FA").cgColor,
+            UIColor.init(hexString: "FFF176").cgColor,
+            UIColor.init(hexString: "F57F17").cgColor
+        ]
         tgl.startPoint = CGPoint.init(x:0.0, y:0.5)
         tgl.endPoint = CGPoint.init(x:1.0, y:0.5)
 
@@ -52,3 +61,4 @@ class CoolSlider: UISlider {
     }
 
 }
+

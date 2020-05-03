@@ -14,4 +14,7 @@ class AlgorithmInput: NSObject {
     var hasMelatonin = false
     var age = 25
     var weight = 150.0
+    
+    var lastSleep: Date!
+    var lastWake: Date!
 }

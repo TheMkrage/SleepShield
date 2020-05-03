@@ -30,10 +30,14 @@ class SetupScreenSleepViewController: UIViewController {
     
     var titleWakeStack: UIStackView = {
         let icon = UIImageView(image: UIImage.init(named: "sun"))
+        icon.widthAnchor == 40
+        icon.heightAnchor == 40
         let l = Label()
                l.font = l.font.withSize(35.0)
                l.text = "Wake"
+        l.widthAnchor == 90
         let s = UIStackView(arrangedSubviews: [icon, l])
+        s.spacing = 15
         return s
     }()
     
@@ -43,11 +47,8 @@ class SetupScreenSleepViewController: UIViewController {
         return l
     }()
     
-    var wakeSlider: CoolSlider = {
-        let c = CoolSlider(colors: [
-            UIColor.init(hex: "#81D4FA")!.cgColor,
-            UIColor.init(hex: "#FFF176")!.cgColor,
-            UIColor.init(hex: "#F57F17")!.cgColor])
+    var wakeSlider: WarmSlider = {
+        let c = WarmSlider()
         c.addTarget(self, action: #selector(wakeDidChange), for: .valueChanged)
         return c
     }()
@@ -65,10 +66,14 @@ class SetupScreenSleepViewController: UIViewController {
     
     var titleSleepStack: UIStackView = {
         let icon = UIImageView(image: UIImage.init(named: "moon"))
+        icon.widthAnchor == 36
+        icon.heightAnchor == 36
         let l = Label()
-               l.font = l.font.withSize(35.0)
-               l.text = "Sleep"
+        l.font = l.font.withSize(35.0)
+        l.text = "Sleep"
+        l.widthAnchor == 90
         let s = UIStackView(arrangedSubviews: [icon, l])
+        s.spacing = 15
         return s
     }()
     
@@ -79,11 +84,8 @@ class SetupScreenSleepViewController: UIViewController {
     }()
     
     var sleepSlider: CoolSlider = {
-        let c = CoolSlider(colors: [
-        UIColor.init(hex: "#0E1449")!.cgColor,
-        UIColor.init(hex: "#0D47A1")!.cgColor,
-        UIColor.init(hex: "#2196F3")!.cgColor])
-        
+        let c = CoolSlider()
+        c.addTarget(self, action: #selector(sleepDidChange), for: .valueChanged)
         return c
     }()
     
@@ -136,14 +138,66 @@ class SetupScreenSleepViewController: UIViewController {
     
     @objc func wakeDidChange() {
         let val = wakeSlider.value
-        let hour = 23 * val
-        wakeTimeLabel.text = getTime(from: hour)
+        let hour = Int(23 * val)
+        
+        let current = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        let currentHour24 = dateFormatter.string(from: current)
+        
+        let final = DateFormatter()
+        final.dateFormat = "HH:mm, d MM y"
+        
+        let formatter4 = DateFormatter()
+        formatter4.dateFormat = "d MM y"
+        
+        if Int(currentHour24)! > hour  {
+            let todayString = formatter4.string(from: current)
+            let s = "\(hour):00, \(todayString)"
+            
+            algorithmInput.lastWake = final.date(from: s)!
+        } else {
+            let dayComp = DateComponents(day: -1)
+            let newcurrent = Calendar.current.date(byAdding: dayComp, to: current)!
+            
+            let todayString = formatter4.string(from: newcurrent)
+            let s = "\(hour):00, \(todayString)"
+            algorithmInput.lastWake = final.date(from: s)!
+        }
+        
+        wakeTimeLabel.text = getTime(from: Float(hour))
     }
     
     @objc func sleepDidChange() {
         let val = sleepSlider.value
-        let hour = 23.0 * val
-        sleepTimeLabel.text = getTime(from: hour)
+        let hour = Int(23 * val)
+        
+        let current = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        let currentHour24 = dateFormatter.string(from: current)
+        
+        let final = DateFormatter()
+        final.dateFormat = "HH:mm, d MM y"
+        
+        let formatter4 = DateFormatter()
+        formatter4.dateFormat = "d MM y"
+        
+        if Int(currentHour24)! > hour  {
+            let todayString = formatter4.string(from: current)
+            let s = "\(hour):00, \(todayString)"
+            
+            algorithmInput.lastSleep = final.date(from: s)!
+        } else {
+            let dayComp = DateComponents(day: -1)
+            let newcurrent = Calendar.current.date(byAdding: dayComp, to: current)!
+            
+            let todayString = formatter4.string(from: newcurrent)
+            let s = "\(hour):00, \(todayString)"
+            algorithmInput.lastSleep = final.date(from: s)!
+        }
+        
+        sleepTimeLabel.text = getTime(from: Float(hour))
     }
     
     private func setupConstraints() {
@@ -174,6 +228,17 @@ class SetupScreenSleepViewController: UIViewController {
         titleSleepStack.topAnchor == sleepCard.topAnchor + 8
         titleSleepStack.leadingAnchor == sleepCard.leadingAnchor + 12
         
+        sleepTimeLabel.topAnchor == titleSleepStack.bottomAnchor + 20
+        sleepTimeLabel.leadingAnchor == sleepCard.leadingAnchor + 25
+        sleepTimeLabel.trailingAnchor == sleepCard.trailingAnchor - 25
+        
+        sleepSlider.topAnchor == sleepTimeLabel.bottomAnchor + 10
+        sleepSlider.leadingAnchor == sleepCard.leadingAnchor + 25
+        sleepSlider.trailingAnchor == sleepCard.trailingAnchor - 25
+        sleepSlider.bottomAnchor == sleepCard.bottomAnchor - 25
+        
+        
+        // button
         button.centerXAnchor == view.centerXAnchor
         button.bottomAnchor == view.safeAreaLayoutGuide.bottomAnchor - 20
         button.heightAnchor == 60
