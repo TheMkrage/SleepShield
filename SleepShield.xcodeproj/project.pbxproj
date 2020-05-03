@@ -10,6 +10,8 @@
 		7E1DE272245E21D5004338C7 /* CoolSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE271245E21D5004338C7 /* CoolSlider.swift */; };
 		7E1DE274245E4141004338C7 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE273245E4141004338C7 /* UIColor+extension.swift */; };
 		7E1DE276245E43FF004338C7 /* WakeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE275245E43FF004338C7 /* WakeSlider.swift */; };
+		7E1DE279245E5CAA004338C7 /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DE278245E5CAA004338C7 /* ShiftTableViewCell.swift */; };
+		7E1DE27C245E5E97004338C7 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E1DE27B245E5E97004338C7 /* SwiftEntryKit */; };
 		7E4E15EC245E06BF006B88CC /* proximanova-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E15EB245E0684006B88CC /* proximanova-light.otf */; };
 		7E4E15EE245E0811006B88CC /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E15ED245E0811006B88CC /* Label.swift */; };
 		7E61D58E245E1C4D00561F97 /* SetupScreenSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */; };
@@ -35,6 +37,7 @@
 		7E1DE271245E21D5004338C7 /* CoolSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolSlider.swift; sourceTree = "<group>"; };
 		7E1DE273245E4141004338C7 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		7E1DE275245E43FF004338C7 /* WakeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeSlider.swift; sourceTree = "<group>"; };
+		7E1DE278245E5CAA004338C7 /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 		7E4E15EB245E0684006B88CC /* proximanova-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proximanova-light.otf"; sourceTree = "<group>"; };
 		7E4E15ED245E0811006B88CC /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7E61D58D245E1C4D00561F97 /* SetupScreenSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupScreenSleepViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1DE27C245E5E97004338C7 /* SwiftEntryKit in Frameworks */,
 				7E8BB339245DEC28005A2777 /* Alamofire in Frameworks */,
 				7E8BB347245DF87C005A2777 /* JTAppleCalendar in Frameworks */,
 				7E8BB33E245DF60F005A2777 /* Anchorage in Frameworks */,
@@ -69,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E1DE277245E5C99004338C7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7E1DE278245E5CAA004338C7 /* ShiftTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		7E61D590245E1CE200561F97 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +108,7 @@
 		7E8BB322245DE2F8005A2777 /* SleepShield */ = {
 			isa = PBXGroup;
 			children = (
+				7E1DE277245E5C99004338C7 /* Cells */,
 				7E61D590245E1CE200561F97 /* Model */,
 				7E8BB34A245DF969005A2777 /* View */,
 				7E8BB341245DF799005A2777 /* ViewControllers */,
@@ -156,6 +169,7 @@
 				7E8BB338245DEC28005A2777 /* Alamofire */,
 				7E8BB33D245DF60F005A2777 /* Anchorage */,
 				7E8BB346245DF87C005A2777 /* JTAppleCalendar */,
+				7E1DE27B245E5E97004338C7 /* SwiftEntryKit */,
 			);
 			productName = SleepShield;
 			productReference = 7E8BB320245DE2F8005A2777 /* SleepShield.app */;
@@ -189,6 +203,7 @@
 				7E8BB337245DEC28005A2777 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7E8BB33C245DF60F005A2777 /* XCRemoteSwiftPackageReference "Anchorage" */,
 				7E8BB345245DF87C005A2777 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+				7E1DE27A245E5E97004338C7 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			productRefGroup = 7E8BB321245DE2F8005A2777 /* Products */;
 			projectDirPath = "";
@@ -229,6 +244,7 @@
 				7E61D592245E1CF300561F97 /* AlgorithmInput.swift in Sources */,
 				7E1DE276245E43FF004338C7 /* WakeSlider.swift in Sources */,
 				7E8BB324245DE2F8005A2777 /* AppDelegate.swift in Sources */,
+				7E1DE279245E5CAA004338C7 /* ShiftTableViewCell.swift in Sources */,
 				7E8BB326245DE2F8005A2777 /* SceneDelegate.swift in Sources */,
 				7E4E15EE245E0811006B88CC /* Label.swift in Sources */,
 				7E8BB343245DF7AF005A2777 /* ShiftViewController.swift in Sources */,
@@ -432,6 +448,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7E1DE27A245E5E97004338C7 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 		7E8BB337245DEC28005A2777 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -459,6 +483,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7E1DE27B245E5E97004338C7 /* SwiftEntryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E1DE27A245E5E97004338C7 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */;
+			productName = SwiftEntryKit;
+		};
 		7E8BB338245DEC28005A2777 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7E8BB337245DEC28005A2777 /* XCRemoteSwiftPackageReference "Alamofire" */;
