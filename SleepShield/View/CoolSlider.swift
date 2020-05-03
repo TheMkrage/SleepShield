@@ -9,22 +9,24 @@
 import UIKit
 
 class CoolSlider: UISlider {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialize()
+    
+    init(colors: [CGColor]) {
+        super.init(frame: .zero)
+        initialize(colors: colors)
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialize()
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private func initialize() {
+    private func initialize(colors: [CGColor]) {
+        layer.cornerRadius = 0
+        setThumbImage(UIImage.init(named: "thumb"), for: .normal)
+        
         let tgl = CAGradientLayer()
         let frame = CGRect.init(x:0, y:0, width: self.frame.size.width, height:5)
         tgl.frame = frame
-        tgl.colors = [UIColor.blue.cgColor, UIColor.green.cgColor, UIColor.yellow.cgColor, UIColor.orange.cgColor, UIColor.red.cgColor]
+        tgl.colors = colors
         tgl.startPoint = CGPoint.init(x:0.0, y:0.5)
         tgl.endPoint = CGPoint.init(x:1.0, y:0.5)
 
@@ -37,6 +39,12 @@ class CoolSlider: UISlider {
 
             self.setMinimumTrackImage(image, for: .normal)
         }
+    }
+    
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        var rect = super.trackRect(forBounds: bounds)
+        rect.size.height = 35
+        return rect
     }
 
 }

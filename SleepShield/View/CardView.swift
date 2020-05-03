@@ -13,7 +13,7 @@ extension UIView {
         layer.masksToBounds = false
         let shadowLayer = CAShapeLayer()
         shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 25).cgPath
-        shadowLayer.fillColor = UIColor.white.cgColor
+        shadowLayer.fillColor = UIColor.init(named: "light")?.cgColor
 
         shadowLayer.shadowColor = UIColor.darkGray.cgColor
         shadowLayer.shadowPath = shadowLayer.path
@@ -28,6 +28,20 @@ extension UIView {
 class CardView: UIView {
     
     private var shadowLayer: CAShapeLayer!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initialize()
+    }
+    
+    private func initialize() {
+        
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
